@@ -56,7 +56,7 @@ function spotify() {
 
     var spotify = new Spotify(keys.spotify);
 
-    spotify.search({ type: 'track', query: song, limit: 1}, function (err, data) {
+    spotify.search({ type: 'track', query: song, limit: 1 }, function (err, data) {
 
         if (err) {
             return console.log('Error occurred: ' + err);
@@ -86,7 +86,7 @@ function movie() {
             console.log(response);
             console.log("--------------------------");
             console.log("Title: " + response.data.Title);
-            console.log("Year: " + response.data.Year );
+            console.log("Year: " + response.data.Year);
             console.log("IMDB Rating: " + response.data.imdbRating);
             console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
             console.log("Country where the movie was produced: " + response.data.Country);
@@ -96,6 +96,25 @@ function movie() {
             console.log("--------------------------");
 
         })
+
+}
+
+var fs = require("fs");
+
+function whatItSays() {
+    var fs = require("fs");
+
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        }
+
+        var dataArr = data.split(",");
+        console.log(dataArr);
+    });
+
+    
+
 
 }
 
