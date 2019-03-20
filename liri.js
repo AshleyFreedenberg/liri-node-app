@@ -1,14 +1,8 @@
 var Spotify = require('node-spotify-api');
-
 var axios = require("axios");
-
 require('dotenv').config()
-
 var moment = require('moment');
-
 var keys = require("./keys.js");
-
-
 
 var action = process.argv[2];
 
@@ -49,11 +43,8 @@ function concert() {
 }
 
 function spotify() {
-
     var song = process.argv[3];
-
     var defaultSong = "'The Sign'by Ace of Base"
-
     var spotify = new Spotify(keys.spotify);
 
     spotify.search({ type: 'track', query: song, limit: 1 }, function (err, data) {
@@ -74,9 +65,7 @@ function spotify() {
 }
 
 function movie() {
-
     var movie = process.argv[3];
-
     var defaultMovie = "Mr. Nobody."
 
     axios
@@ -99,8 +88,6 @@ function movie() {
 
 }
 
-var fs = require("fs");
-
 function whatItSays() {
     var fs = require("fs");
 
@@ -108,13 +95,8 @@ function whatItSays() {
         if (error) {
             return console.log(error);
         }
-
         var dataArr = data.split(",");
         console.log(dataArr);
     });
-
-    
-
-
 }
 
